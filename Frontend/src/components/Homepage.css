@@ -41,14 +41,6 @@ button {
   align-items: center;
   height: calc(100vh - 0px);
 }
-.delete-all-button {
-  position: absolute;
-  bottom: 5rem;
-  text-align: center;
-  /* width: 100%;
-  text-align: center; */
-}
-
 
 .sidebar {
   width: 30%;
@@ -754,16 +746,29 @@ button.page-link.active {
 
 .question {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .question-text {
   background: #f0f4f1;
   padding: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 15px; 
   border-radius: 6px;
 }
+
+.question:hover{
+  .edit{
+    display: block;
+  }
+}
+.edit{
+  display: none;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
 .previous-chat {
   margin-top: 10px;
   padding: 10px;
@@ -908,3 +913,42 @@ button.page-link.active {
     background-position: -200% 0;
   }
 }
+
+.table-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-wrapper {
+  display: flex;
+  margin-top: 5px;
+}
+
+.round-btn {
+  width: 30px !important;
+  line-height: 28px !important;
+  display: block;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  color: #00a9ff;
+  font-size: 14px;
+  margin: 0 3px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.round-btn:hover {
+  background: #00a9ff;
+  border-color: #00a9ff;
+  color: #ffffff;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+

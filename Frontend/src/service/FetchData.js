@@ -9,6 +9,25 @@ const useFetch=()=>{
             Authorization:`Bearer ${token}`,
         }
        }
+
+       const updateFeedback=async(apiUrl,type,itemId)=>{
+        try{
+            console.log("feedback id",itemId)
+             await axios.post(
+                apiUrl,
+                {
+                  "feedback_id": itemId,
+                  feedback_message: type === "like" ? "Good" : "Bad",
+                  is_correct: type === "like" ? true : false,
+                  
+                },
+                authHeader
+              );
+            } catch (error) {
+              console.error("An error occurred during feedback update:", error);
+            }
+    }
+
     async function  fetchData(apiUrl,query,chatID){
            
         try{
@@ -32,6 +51,6 @@ const useFetch=()=>{
          }
 }
 
-return {fetchData}
+return {fetchData,updateFeedback}
 }
 export default useFetch;

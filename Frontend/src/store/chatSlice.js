@@ -24,7 +24,9 @@ const chatSlice=createSlice({
       state.latestResponseIndex += 1;
       state.answer.push(action.payload);   
     },
-    
+    updateAnswer(state,action){
+      state.answer[state.answer.length-1]=action.payload;
+    },
     updateChatHistory(state,action){
       state.chatHistory=action.payload;
     },
@@ -58,7 +60,8 @@ export const {
     clearAnswer,
     updateChatHistory,
     setChatID,
-    setToken
+    setToken,
+    updateAnswer
   } = chatSlice.actions;
   
   export default chatSlice.reducer;

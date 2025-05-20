@@ -1,16 +1,18 @@
 import axios from "axios";
-import { ENDPOINTS } from "./endpoint";
+import { ENDPOINTS,username,password } from "./endpoint";
 
-const Username=process.env.USERNAME;
-const Password=process.env.PASSWORD;
+
+
+console.log(username)
    export const loginUser = async () => {    
     try {
-        const response = await axios.post(`${ENDPOINTS}/login`, {
-          username: "cpro@sphinxworldbiz.com",
-          password: "sphinxecb123",
+        const response = await axios.post(`${ENDPOINTS}/login/`, {
+          username: username,
+          password: password,
         });
-        console.log("am response",response)
+        console.log("am response",response.data.data)
         const gettoken = response.data.data.access_token;
+        // const refreshToken = response.data.data.refresh_token;
         return gettoken;
       } 
       
